@@ -1,6 +1,9 @@
 const carta = document.getElementById('carta-gerada');
 const texto = document.getElementById('carta-texto');
 const btnCreate = document.getElementById('criar-carta');
+const conter = document.getElementById('carta-contador');
+
+let newValue = 0;
 
 function getClasses(piece) {
   const style = ['newspaper', 'magazine1', 'magazine2'];
@@ -20,9 +23,12 @@ function createCard() {
   if (texto.value == '' || texto.value == ' ' ) {
   carta.innerText= 'Por favor, digite o conteúdo da carta.';
   } else {
+    
   carta.innerText='';
   const words = texto.value;
   const brokenText = words.split(' ');
+  newValue = brokenText.length; 
+  conter.innerHTML = newValue
   for(let i = 0; i<brokenText.length; i+=1) {
   let element = document.createElement('span')
   carta.appendChild(element)
@@ -35,3 +41,4 @@ function createCard() {
 
 
 btnCreate.addEventListener('click', createCard);
+
