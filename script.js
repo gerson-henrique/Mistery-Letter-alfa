@@ -19,26 +19,22 @@ function getClasses(piece) {
   piece.classList.add(rotation[timesTwo]);
   piece.classList.add(skew[timesTwo]);
 }
-function createCard() { 
-  if (texto.value == '' || texto.value == ' ' ) {
-  carta.innerText= 'Por favor, digite o conteúdo da carta.';
+function createCard() {
+  if (texto.value === '' || texto.value === ' ') {
+    carta.innerText = 'Por favor, digite o conteúdo da carta.';
   } else {
-    
-  carta.innerText='';
-  const words = texto.value;
-  const brokenText = words.split(' ');
-  newValue = brokenText.length; 
-  conter.innerHTML = newValue
-  for(let i = 0; i<brokenText.length; i+=1) {
-  let element = document.createElement('span')
-  carta.appendChild(element)
-  getClasses(element)
-  element.innerText = brokenText[i];
+    carta.innerText = '';
+    const words = texto.value;
+    const brokenText = words.split(' ');
+    newValue = brokenText.length;
+    conter.innerHTML = newValue;
+    for (let i = 0; i < brokenText.length; i += 1) {
+      const element = document.createElement('span');
+      carta.appendChild(element);
+      getClasses(element);
+      element.innerText = brokenText[i];
+    }
   }
 }
-}
-
-
 
 btnCreate.addEventListener('click', createCard);
-
